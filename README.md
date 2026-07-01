@@ -1,6 +1,11 @@
 # Evan 的全球账户
 
-一个可部署到 Cloudflare Pages 的纯静态中文个人品牌网站，主题包括全球账户体系、美国信用记录、美国信用卡、ITIN 与实用工具。
+一个已经部署到 Cloudflare Pages 的纯静态中文个人品牌网站，主题包括全球账户体系、美国信用记录、美国信用卡、ITIN 与实用工具。
+
+正式访问地址：
+
+- 自定义域名：<https://evan.tuomuyifa.dpdns.org>
+- Cloudflare Pages 默认地址：<https://evan-global-account.pages.dev>
 
 ## 文件结构
 
@@ -43,16 +48,19 @@ git commit -m "Build static personal brand website"
 git push origin main
 ```
 
-## 部署到 Cloudflare Pages
+## Cloudflare Pages 部署状态
 
-1. 登录 Cloudflare。
-2. 进入 Workers & Pages。
-3. 选择 Create application。
-4. 选择 Pages。
-5. 连接 GitHub 仓库 `871455250-code/evan-global-account`。
-6. 选择 `main` 分支。
-7. 按下面设置填写部署配置。
-8. 点击 Save and Deploy。
+网站已经成功部署到 Cloudflare Pages，并已绑定自定义域名：
+
+```text
+https://evan.tuomuyifa.dpdns.org
+```
+
+默认 Pages 地址：
+
+```text
+https://evan-global-account.pages.dev
+```
 
 ## Cloudflare Pages 推荐设置
 
