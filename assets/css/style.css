@@ -338,6 +338,19 @@ h3 {
   font-weight: 800;
 }
 
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--navy);
+  background: var(--gold-soft);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .text-link {
   display: inline-flex;
   color: var(--navy);
@@ -470,6 +483,57 @@ h3 {
   font-weight: 900;
 }
 
+.notice-card {
+  padding: 22px;
+  border: 1px solid rgba(216, 180, 106, 0.5);
+  border-radius: 8px;
+  background: #fffaf0;
+}
+
+.notice-card p:last-child,
+.tool-card p:last-child,
+.topic-card p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.contact-list div {
+  padding: 18px;
+  border-radius: 8px;
+  background: #f6f8fb;
+}
+
+.contact-list strong,
+.contact-list span {
+  display: block;
+}
+
+.contact-list span {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.social-grid span {
+  padding: 14px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--navy);
+  text-align: center;
+  font-weight: 800;
+}
+
 .site-footer {
   padding: 42px 0 26px;
   color: #c7d2e1;
@@ -593,7 +657,8 @@ h3 {
 
   .metric-row,
   .route-line,
-  .info-grid {
+  .info-grid,
+  .social-grid {
     grid-template-columns: 1fr;
   }
 

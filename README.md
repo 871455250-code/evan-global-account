@@ -11,6 +11,7 @@
 
 ```text
 index.html
+getting-started.html
 about.html
 credit-cards.html
 itin-credit.html
