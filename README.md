@@ -1,6 +1,6 @@
 # Evan 的全球账户
 
-一个已经部署到 Cloudflare Pages 的纯静态中文个人品牌网站，主题包括全球账户体系、美国信用记录、美国信用卡、ITIN 与实用工具。
+一个已经部署到 Cloudflare Pages 的纯静态中文知识站与工具站，主题包括全球账户体系、美国信用记录、美国信用卡、ITIN、跨境支付与实用工具。
 
 正式访问地址：
 
@@ -11,13 +11,16 @@
 
 ```text
 index.html
-getting-started.html
-about.html
 credit-cards.html
-itin-credit.html
-tools.html
 articles.html
+tools.html
+getting-started.html
+itin-credit.html
+about.html
 contact.html
+privacy.html
+terms.html
+disclosure.html
 assets/css/style.css
 assets/js/main.js
 README.md
@@ -37,16 +40,6 @@ python3 -m http.server 8000
 
 ```text
 http://localhost:8000
-```
-
-## 提交到 GitHub
-
-如果你在本地修改了文件，可以按下面流程提交：
-
-```bash
-git add .
-git commit -m "Build static personal brand website"
-git push origin main
 ```
 
 ## Cloudflare Pages 部署状态
@@ -75,7 +68,7 @@ Environment variables: 不需要
 
 ## 后续添加文章
 
-第一版把主题页直接放在根目录，方便 Cloudflare Pages 直接部署。后续可以继续新增类似 `new-article.html` 的页面，并在 `articles.html` 里加入链接。
+当前网站按内容站 + 工具站组织：信用卡中心、文章分类、工具箱、申请前准备、ITIN 指南和信任披露页面。后续可以继续新增独立文章页，并在 `articles.html` 对应分类下加入链接。
 
 ## 免责声明
 
