@@ -43,7 +43,13 @@ canonical、Open Graph、Twitter 图片和 JSON-LD 使用 https://evanglobalcom.
 仓库继续保留 .html 文件，站内导航使用相对链接；Pages 自带的 .html 跳转保持兼容。
 新增页面时同步更新 sitemap.xml 和相应内容入口。保留文章真实发布时间，不凭空生成历史日期。
 
-## 域名迁移与重定向
+## 域名迁移状态
+
+2026-09-16 已在现有 Pages 项目完成根域名及 www 绑定，三个自定义域名均显示活动且 SSL 已启用。Squarespace 的四条根域 A 记录与 www 托管 CNAME 已替换为 Pages 记录，未变更邮件或其他无关 DNS。
+
+Cloudflare Bulk Redirect 列表 evanglobalcanonical 和规则 Evan Global Account canonical domain 已启用，精确匹配 www、旧域和生产 pages.dev。三者的 HTTP/HTTPS 请求均 301 到新站，保留 path 和 query；不包含预览子域。根域 HTTP 也会跳到 HTTPS。
+
+## 域名维护与重定向
 
 1. 在现有 Pages 项目 Custom domains 中绑定 evanglobalcom.com 和 www.evanglobalcom.com，确认域名与 HTTPS 证书正常。
 2. 根域名和 www 的网站 DNS 指向 evan-global-account.pages.dev。只替换冲突的 Squarespace 网站 A/CNAME；保留 NS、MX、TXT 和其他无关记录。
@@ -71,7 +77,9 @@ Application Coaching 仅限教育与流程理解，客户本人核对并提交�
 
 ## 隐私、安全与法律维护
 
-当前页面不设置营销追踪或收集支付信息。Cloudflare 托管、隐私增强 YouTube 播放器及邮件联系仍可能处理必要信息，详见隐私政策。
+当前页面不设置营销追踪或收集支付信息。Cloudflare 在边缘自动注入 Web Analytics 性能统计及邮箱防采集脚本，_headers 仅允许本站和官方统计脚本所需的来源，不在仓库保存统计标识或任何秘密凭据。Cloudflare 托管、隐私增强 YouTube 播放器及邮件联系仍可能处理必要信息，详见隐私政策。
+
+Cloudflare 管理的 robots 内容保留搜索索引许可和现有 AI 训练爬虫限制；仓库的 Sitemap 声明仍指向新主域名。
 禁止提交密钥、令牌、密码、身份证件、税号、银行账号或客户资料。未来需要凭据时使用平台 Secret，不写入前端或 Git 历史。
 发布配图前检查打码，保留公开原图资源路径，避免误传原始敏感截图。
 
