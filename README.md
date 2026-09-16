@@ -3,7 +3,7 @@
 由 Tuomu Digital LLC 运营的中文教育品牌，聚焦美国信用、全球账户与跨境金融工具。公开文章持续更新；尚未正式销售的数字产品、工具、教育型咨询、软件及精选实物产品均明确标注状态。
 
 - 正式网站：https://evanglobalcom.com
-- 商业联系：yifatuomu@gmail.com
+- 商业联系：evan@evanglobalcom.com
 - GitHub：871455250-code/evan-global-account
 - 托管：现有 Cloudflare Pages 项目 evan-global-account
 - Pages 项目地址：https://evan-global-account.pages.dev
