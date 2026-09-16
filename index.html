@@ -63,11 +63,29 @@
   </script>
 </head>
 <body>
+  <!-- Ambient Cursor Glow Effect -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
   <a class="skip-link" href="#main-content">跳到主要内容</a>
-  <header class="site-header">
+
+  <header class="site-header" id="site-header">
     <nav class="nav container" aria-label="主导航">
-      <a class="brand" href="index.html" aria-label="Evan 的全球账户首页"><span class="brand-mark">E</span><span>Evan 的全球账户</span></a>
-      <button class="nav-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <a class="brand" href="index.html" aria-label="Evan 的全球账户首页">
+        <span class="brand-mark" aria-hidden="true">
+          <span>E</span>
+        </span>
+        <span class="brand-title">
+          <span>Evan 的全球账户</span>
+          <span class="brand-sub">GLOBAL ACCOUNT</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+
       <div class="nav-links" id="primary-navigation">
         <a href="index.html" aria-current="page">首页</a>
         <a href="credit-cards.html">信用卡</a>
@@ -76,111 +94,595 @@
         <a href="getting-started.html">办卡前准备</a>
         <a href="itin-credit.html">ITIN 指南</a>
         <a href="about.html">关于 Evan</a>
-        <a class="nav-cta" href="contact.html">联系</a>
+        <a class="nav-cta" href="contact.html">
+          <span>联系</span>
+          <svg class="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
+    <!-- Hero Section with Dynamic Ambient Canvas -->
     <section class="hero">
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-glow-orb hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-orb hero-glow-2" aria-hidden="true"></div>
+
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Global Account Knowledge Base</p>
-          <h1>Evan 的全球账户</h1>
+        <div class="hero-copy" data-reveal="fade-up">
+          <div class="eyebrow-pill">
+            <span class="pulsing-dot" aria-hidden="true"></span>
+            <span class="eyebrow">Global Account Knowledge Base</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-title-gradient">Evan 的全球账户</span>
+          </h1>
+
           <p class="hero-subtitle">面向中文用户整理全球账户、美国信用记录、美国信用卡、ITIN、跨境支付和实用工具。</p>
           <p class="business-intro">Evan Global Account 提供围绕美国信用、个人金融教育和跨境金融工具的数字产品、在线工具及教育型咨询服务。</p>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="tools.html">探索工具</a>
-            <a class="button button-secondary" href="products-services.html#digital-guides">数字产品</a>
-            <a class="button button-secondary" href="products-services.html">产品与服务</a>
+            <a class="button button-primary glow-btn" href="tools.html">
+              <span>探索工具</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a class="button button-secondary glass-btn" href="products-services.html#digital-guides">
+              <span>数字产品</span>
+            </a>
+            <a class="button button-secondary glass-btn" href="products-services.html">
+              <span>产品与服务</span>
+            </a>
           </div>
-          <p class="hero-followup"><a class="text-link" href="getting-started.html">先看办卡前准备</a></p>
+
+          <p class="hero-followup">
+            <a class="text-link hero-link-animated" href="getting-started.html">
+              <span>先看办卡前准备</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </p>
+
           <p class="hero-disclaimer">本站内容仅供教育及信息用途，不构成金融、投资、税务或法律建议。未上线的付费项目均标记为即将推出。</p>
         </div>
-        <div class="hero-panel" aria-label="网站内容地图">
-          <div class="panel-card panel-card-main"><span>知识站 + 工具站</span><strong>Credit · ITIN · Banking · Tools</strong></div>
-          <div class="metric-row">
-            <div><span>内容路径</span><strong>先准备再申请</strong></div>
-            <div><span>工具方法</span><strong>记录与复盘</strong></div>
+
+        <!-- Right Side: Interactive 3D Metal Card Showcase -->
+        <div class="hero-panel-wrapper" data-reveal="fade-left">
+          <div class="hero-panel interactive-card" id="hero-tilt-card" data-tilt aria-label="网站内容地图">
+            <div class="card-shimmer" aria-hidden="true"></div>
+
+            <!-- 3D Luxury Metal Card Item -->
+            <div class="panel-card panel-card-main">
+              <div class="card-top-row">
+                <div class="card-chip" aria-hidden="true">
+                  <div class="chip-line"></div>
+                  <div class="chip-line"></div>
+                </div>
+                <div class="card-nfc" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8.5 16.5a5 5 0 0 1 0-9"/><path d="M12 19a8.5 8.5 0 0 0 0-14"/><path d="M15.5 21.5a12 12 0 0 0 0-19"/></svg>
+                </div>
+              </div>
+
+              <div class="card-center-badge">
+                <span class="card-tagline">知识站 + 工具站</span>
+                <strong class="card-title-highlight">Credit · ITIN · Banking · Tools</strong>
+              </div>
+
+              <div class="card-bottom-row">
+                <div class="card-user-brand">EVAN GLOBAL ACCOUNT</div>
+                <div class="card-currency-badge">USD / GLOBAL</div>
+              </div>
+            </div>
+
+            <!-- Dynamic Metric Row -->
+            <div class="metric-row">
+              <div class="metric-card">
+                <span class="metric-label">内容路径</span>
+                <strong class="metric-val">先准备再申请</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">工具方法</span>
+                <strong class="metric-val">记录与复盘</strong>
+              </div>
+            </div>
+
+            <!-- Interactive Route Line -->
+            <div class="route-line-wrap">
+              <div class="route-line">
+                <span class="route-step active"><span class="step-num">01</span>准备</span>
+                <span class="route-step"><span class="step-num">02</span>申请</span>
+                <span class="route-step"><span class="step-num">03</span>管理</span>
+                <span class="route-step"><span class="step-num">04</span>安全</span>
+              </div>
+            </div>
           </div>
-          <div class="route-line"><span>准备</span><span>申请</span><span>管理</span><span>安全</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Core Entries Section -->
+    <section class="section" id="core-entries">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Core Entries</p><h2>核心入口</h2></div>
+        <div class="section-heading" data-reveal="fade-up">
+          <p class="eyebrow">Core Entries</p>
+          <h2>核心入口</h2>
+          <div class="heading-line"></div>
+        </div>
+
         <div class="card-grid">
-          <article class="topic-card"><span class="card-kicker">准备</span><h3>办卡前准备</h3><p>整理 ITIN / SSN、美国手机号、地址、银行账户、邮箱与 2FA、网络环境和信用记录基础。</p><a class="text-link" href="getting-started.html">查看准备清单</a></article>
-          <article class="topic-card"><span class="card-kicker">信用卡</span><h3>美国信用卡</h3><p>从新手入门卡、银行体系、酒店卡、旅行卡到申请顺序，建立长期路线。</p><a class="text-link" href="credit-cards.html">进入信用卡中心</a></article>
-          <article class="topic-card"><span class="card-kicker">ITIN</span><h3>ITIN 与信用</h3><p>理解 ITIN 的定位、信息一致性、信用记录建立和长期维护。</p><a class="text-link" href="itin-credit.html">查看 ITIN 指南</a></article>
-          <article class="topic-card"><span class="card-kicker">工具</span><h3>工具箱</h3><p>准备清单、申请顺序、5/24、账单提醒、奖励追踪、费用计算和账户安全工具。</p><a class="text-link" href="tools.html">打开工具箱</a></article>
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="100">
+            <div class="card-inner">
+              <div class="card-header-meta">
+                <span class="card-kicker">准备</span>
+                <div class="card-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+              </div>
+              <h3>办卡前准备</h3>
+              <p>整理 ITIN / SSN、美国手机号、地址、银行账户、邮箱与 2FA、网络环境和信用记录基础。</p>
+              <a class="text-link" href="getting-started.html">
+                <span>查看准备清单</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="150">
+            <div class="card-inner">
+              <div class="card-header-meta">
+                <span class="card-kicker">信用卡</span>
+                <div class="card-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+              </div>
+              <h3>美国信用卡</h3>
+              <p>从新手入门卡、银行体系、酒店卡、旅行卡到申请顺序，建立长期路线。</p>
+              <a class="text-link" href="credit-cards.html">
+                <span>进入信用卡中心</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="200">
+            <div class="card-inner">
+              <div class="card-header-meta">
+                <span class="card-kicker">ITIN</span>
+                <div class="card-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><line x1="15" y1="8" x2="17" y2="8"/><line x1="15" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="17" y2="16"/></svg>
+                </div>
+              </div>
+              <h3>ITIN 与信用</h3>
+              <p>理解 ITIN 的定位、信息一致性、信用记录建立和长期维护。</p>
+              <a class="text-link" href="itin-credit.html">
+                <span>查看 ITIN 指南</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="250">
+            <div class="card-inner">
+              <div class="card-header-meta">
+                <span class="card-kicker">工具</span>
+                <div class="card-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+              </div>
+              <h3>工具箱</h3>
+              <p>准备清单、申请顺序、5/24、账单提醒、奖励追踪、费用计算和账户安全工具。</p>
+              <a class="text-link" href="tools.html">
+                <span>打开工具箱</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted">
+    <!-- Popular Topics Section -->
+    <section class="section section-alt" id="popular-topics">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Popular Topics</p><h2>热门内容</h2></div>
+        <div class="section-heading" data-reveal="fade-up">
+          <p class="eyebrow">Popular Topics</p>
+          <h2>热门内容</h2>
+          <div class="heading-line"></div>
+        </div>
+
         <div class="card-grid">
-          <article class="topic-card"><span class="card-kicker">Capital One</span><h3>Capital One 入门卡</h3><p>适合作为新手路线的一部分，后续会整理预审批、入门卡和旅行卡路径。</p><a class="text-link" href="itin-capital-one-platinum.html">阅读真实建信记录</a></article>
-          <article class="topic-card"><span class="card-kicker">American Express</span><h3>Amex Hilton</h3><p>酒店卡内容会从权益、年费、开卡奖励和长期持有价值几个角度整理。</p><a class="text-link" href="credit-cards.html">查看酒店卡</a></article>
-          <article class="topic-card"><span class="card-kicker">Chase</span><h3>Chase 申请顺序</h3><p>围绕 5/24、Freedom、Sapphire、Ink 和联名卡建立申请顺序框架。</p><a class="text-link" href="credit-cards.html">查看申请顺序</a></article>
-          <article class="topic-card"><span class="card-kicker">ITIN</span><h3>ITIN 建立信用</h3><p>关注信息一致性、账户使用记录和信用报告归集，不追求短期捷径。</p><a class="text-link" href="itin-credit.html">查看 ITIN 指南</a></article>
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="100">
+            <div class="card-inner">
+              <span class="card-kicker">Capital One</span>
+              <h3>Capital One 入门卡</h3>
+              <p>适合作为新手路线的一部分，后续会整理预审批、入门卡和旅行卡路径。</p>
+              <a class="text-link" href="itin-capital-one-platinum.html">
+                <span>阅读真实建信记录</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="150">
+            <div class="card-inner">
+              <span class="card-kicker">American Express</span>
+              <h3>Amex Hilton</h3>
+              <p>酒店卡内容会从权益、年费、开卡奖励和长期持有价值几个角度整理。</p>
+              <a class="text-link" href="credit-cards.html">
+                <span>查看酒店卡</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="200">
+            <div class="card-inner">
+              <span class="card-kicker">Chase</span>
+              <h3>Chase 申请顺序</h3>
+              <p>围绕 5/24、Freedom、Sapphire、Ink 和联名卡建立申请顺序框架。</p>
+              <a class="text-link" href="credit-cards.html">
+                <span>查看申请顺序</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="topic-card spotlight-card" data-reveal="fade-up" data-reveal-delay="250">
+            <div class="card-inner">
+              <span class="card-kicker">ITIN</span>
+              <h3>ITIN 建立信用</h3>
+              <p>关注信息一致性、账户使用记录和信用报告归集，不追求短期捷径。</p>
+              <a class="text-link" href="itin-credit.html">
+                <span>查看 ITIN 指南</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Featured Tools Section -->
+    <section class="section" id="featured-tools">
       <div class="container">
-        <div class="section-heading inline-heading"><div><p class="eyebrow">Featured Tools</p><h2>工具精选</h2></div><a class="text-link" href="tools.html">全部工具</a></div>
+        <div class="section-heading inline-heading" data-reveal="fade-up">
+          <div>
+            <p class="eyebrow">Featured Tools</p>
+            <h2>工具精选</h2>
+            <div class="heading-line"></div>
+          </div>
+          <a class="text-link view-all-link" href="tools.html">
+            <span>全部工具</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
         <div class="card-grid">
-          <article class="tool-card"><span class="card-kicker">准备</span><h3>办卡准备清单</h3><p>把身份、地址、手机号、银行账户、邮箱安全和信用基础放进一张清单。</p><span class="status-pill">模板准备中</span></article>
-          <article class="tool-card"><span class="card-kicker">账单</span><h3>账单日提醒表</h3><p>记录账单日、还款日、自动还款状态和提醒设置。</p><span class="status-pill">模板准备中</span></article>
-          <article class="tool-card"><span class="card-kicker">Chase</span><h3>5/24 记录器</h3><p>跟踪近 24 个月新开卡片，辅助判断 Chase 申请窗口。</p><span class="status-pill">即将上线</span></article>
-          <article class="tool-card"><span class="card-kicker">费用</span><h3>汇率手续费计算器</h3><p>用于复盘换汇、转账、刷卡和提现的实际成本。</p><span class="status-pill">即将上线</span></article>
+          <article class="tool-card spotlight-card" data-reveal="fade-up" data-reveal-delay="100">
+            <div class="card-inner">
+              <div class="tool-top">
+                <span class="card-kicker">准备</span>
+                <span class="status-pill status-pill-draft">
+                  <span class="pill-dot"></span>模板准备中
+                </span>
+              </div>
+              <h3>办卡准备清单</h3>
+              <p>把身份、地址、手机号、银行账户、邮箱安全和信用基础放进一张清单。</p>
+            </div>
+          </article>
+
+          <article class="tool-card spotlight-card" data-reveal="fade-up" data-reveal-delay="150">
+            <div class="card-inner">
+              <div class="tool-top">
+                <span class="card-kicker">账单</span>
+                <span class="status-pill status-pill-draft">
+                  <span class="pill-dot"></span>模板准备中
+                </span>
+              </div>
+              <h3>账单日提醒表</h3>
+              <p>记录账单日、还款日、自动还款状态和提醒设置。</p>
+            </div>
+          </article>
+
+          <article class="tool-card spotlight-card" data-reveal="fade-up" data-reveal-delay="200">
+            <div class="card-inner">
+              <div class="tool-top">
+                <span class="card-kicker">Chase</span>
+                <span class="status-pill status-pill-soon">
+                  <span class="pill-dot pulse"></span>即将上线
+                </span>
+              </div>
+              <h3>5/24 记录器</h3>
+              <p>跟踪近 24 个月新开卡片，辅助判断 Chase 申请窗口。</p>
+            </div>
+          </article>
+
+          <article class="tool-card spotlight-card" data-reveal="fade-up" data-reveal-delay="250">
+            <div class="card-inner">
+              <div class="tool-top">
+                <span class="card-kicker">费用</span>
+                <span class="status-pill status-pill-soon">
+                  <span class="pill-dot pulse"></span>即将上线
+                </span>
+              </div>
+              <h3>汇率手续费计算器</h3>
+              <p>用于复盘换汇、转账、刷卡和提现的实际成本。</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted">
+    <!-- Latest Articles Section (Horizontal Scroll Showcase) -->
+    <section class="section section-alt" id="latest-articles">
       <div class="container">
-        <div class="section-heading inline-heading"><div><p class="eyebrow">Latest Articles</p><h2>最新文章</h2></div><a class="text-link" href="articles.html">查看分类</a></div>
-        <div class="article-list">
-          <article class="article-item"><div><span class="article-tag">最新视频 + 图文</span><h3><a href="fixed-us-ip-711proxy-setup-guide.html">为什么我使用固定美国 IP？711Proxy 购买、检查与设置全过程</a></h3></div><p>从线路选择、IPinfo 与风险数据库检查，到 Shadowrocket 导入和 Proxy Pass 设置，完整记录固定美国网络出口的实际使用流程。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="amex-gold-platinum-china-worth-it.html">人在国内，美国运通金卡、白金卡值得办吗？</a></h3></div><p>从年费、MR 积分、美国本地优惠、酒店额度和机场权益出发，判断两张热门卡是否匹配自己的真实生活。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="capital-one-credit-cards-guide.html">Capital One 信用卡到底怎么选？八张免境外手续费的个人卡讲清楚</a></h3></div><p>从 Platinum、Quicksilver、Savor 到 Venture X，按信用阶段、年费和实际用途看懂 Capital One 的八张个人卡。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="capital-one-platinum-china-singapore-real-use.html">这张 Capital One 回到国内以后，到底能不能用？</a></h3></div><p>成都地铁、微信支付、新加坡交通卡充值和美元订阅四笔真实消费，全部对照正式入账记录复盘。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="itin-us-credit-card-cost-ledger.html">申请 ITIN 和美国信用卡，到底值不值？我的真实成本账</a></h3></div><p>美国信用卡还没开始赚钱，成本已经发生。我公开第一年的真实支出，并测算 2% 与 3% 返现需要多少自然消费才能回本。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="creditwise-itin-credit-report-score.html">Capital One 不让我查信用分？ITIN 用户先看懂这件事</a></h3></div><p>CreditWise 无法用 ITIN 注册，不等于信用卡没有上报。我先查信用报告，再根据账户历史理解信用分和查询工具。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="wise-pay-capital-one-without-us-checking.html">没有美国 Checking，怎么还美国信用卡？我为什么选择 Wise</a></h3></div><p>没有传统美国银行 Checking 时，我如何核对 Wise USD Account Details、准备美元余额，并理解由 Capital One 发起扣款的资金方向。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="capital-one-platinum-activation-autopay-billing.html">Capital One Platinum 到手后怎么设置？激活、AutoPay、账单</a></h3></div><p>实体卡到手后，我按照真实顺序完成账户注册、卡片激活、还款账户绑定和 Statement Balance AutoPay 设置。</p></article>
-          <article class="article-item"><div><span class="article-tag">视频 + 图文</span><h3><a href="itin-capital-one-platinum-application-process.html">用 ITIN 申请 Capital One Platinum：从准备资料到获批 $500 的真实流程</a></h3></div><p>从准备 ITIN 和真实资料，到预审批、补件、获批 500 美元额度并收到实体卡的完整记录。</p></article>
-                    <article class="article-item"><div><span class="article-tag">真实建信记录</span><h3><a href="capital-one-platinum-500-credit-limit-plan.html">$500 额度怎么养信用？我的 Capital One Platinum 使用计划</a></h3></div><p>我刚拿到 Capital One Platinum，初始额度只有 500 美元。这是我的小额、稳定、低利用率和按时全额还款计划。</p></article>
-                    <article class="article-item"><div><span class="article-tag">真实建信记录</span><h3><a href="itin-capital-one-platinum.html">ITIN 是什么？非美国人从 0 建信，我为什么第一张选 Capital One Platinum？</a></h3></div><p>我不是美国人，也没有 SSN，但我正在用 ITIN 从 0 开始建立美国信用记录。</p></article>
-          <article class="article-item"><div><span class="article-tag">办卡前准备</span><h3><a href="getting-started.html">美国信用卡办卡前准备</a></h3></div><p>从身份识别、手机号、地址、银行账户、邮箱安全和网络习惯开始。</p></article>
-          <article class="article-item"><div><span class="article-tag">信用卡</span><h3><a href="credit-cards.html">美国信用卡中心</a></h3></div><p>按新手路线、银行、酒店卡、旅行卡和申请顺序整理信用卡地图。</p></article>
-          <article class="article-item"><div><span class="article-tag">ITIN</span><h3><a href="itin-credit.html">ITIN 指南与美国信用记录</a></h3></div><p>梳理 ITIN 定位、信息一致性和信用建设中的长期变量。</p></article>
+        <div class="section-heading inline-heading" data-reveal="fade-up">
+          <div>
+            <p class="eyebrow">Latest Articles</p>
+            <h2>最新文章</h2>
+            <div class="heading-line"></div>
+          </div>
+          <div class="carousel-nav-group">
+            <div class="slider-controls" aria-label="文章轮播切换">
+              <button class="slider-btn slider-prev" id="article-prev" type="button" aria-label="向左滚动">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="slider-btn slider-next" id="article-next" type="button" aria-label="向右滚动">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+            <a class="text-link view-all-link" href="articles.html">
+              <span>查看分类</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="articles-carousel-container" data-reveal="fade-up">
+          <div class="carousel-edge-fade edge-left" aria-hidden="true"></div>
+          <div class="carousel-edge-fade edge-right" aria-hidden="true"></div>
+
+          <div class="articles-track" id="articles-track" role="region" aria-label="最新文章滚动画廊">
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag tag-featured">最新视频 + 图文</span>
+                <h3><a href="fixed-us-ip-711proxy-setup-guide.html">为什么我使用固定美国 IP？711Proxy 购买、检查与设置全过程</a></h3>
+                <p>从线路选择、IPinfo 与风险数据库检查，到 Shadowrocket 导入和 Proxy Pass 设置，完整记录固定美国网络出口的实际使用流程。</p>
+                <a class="article-read-btn" href="fixed-us-ip-711proxy-setup-guide.html" aria-label="阅读文章：为什么我使用固定美国 IP？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="amex-gold-platinum-china-worth-it.html">人在国内，美国运通金卡、白金卡值得办吗？</a></h3>
+                <p>从年费、MR 积分、美国本地优惠、酒店额度和机场权益出发，判断两张热门卡是否匹配自己的真实生活。</p>
+                <a class="article-read-btn" href="amex-gold-platinum-china-worth-it.html" aria-label="阅读文章：人在国内，美国运通金卡、白金卡值得办吗？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="capital-one-credit-cards-guide.html">Capital One 信用卡到底怎么选？八张免境外手续费的个人卡讲清楚</a></h3>
+                <p>从 Platinum、Quicksilver、Savor 到 Venture X，按信用阶段、年费和实际用途看懂 Capital One 的八张个人卡。</p>
+                <a class="article-read-btn" href="capital-one-credit-cards-guide.html" aria-label="阅读文章：Capital One 信用卡到底怎么选？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="capital-one-platinum-china-singapore-real-use.html">这张 Capital One 回到国内以后，到底能不能用？</a></h3>
+                <p>成都地铁、微信支付、新加坡交通卡充值和美元订阅四笔真实消费，全部对照正式入账记录复盘。</p>
+                <a class="article-read-btn" href="capital-one-platinum-china-singapore-real-use.html" aria-label="阅读文章：这张 Capital One 回到国内以后，到底能不能用？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="itin-us-credit-card-cost-ledger.html">申请 ITIN 和美国信用卡，到底值不值？我的真实成本账</a></h3>
+                <p>美国信用卡还没开始赚钱，成本已经发生。我公开第一年的真实支出，并测算 2% 与 3% 返现需要多少自然消费才能回本。</p>
+                <a class="article-read-btn" href="itin-us-credit-card-cost-ledger.html" aria-label="阅读文章：申请 ITIN 和美国信用卡，到底值不值？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="creditwise-itin-credit-report-score.html">Capital One 不让我查信用分？ITIN 用户先看懂这件事</a></h3>
+                <p>CreditWise 无法用 ITIN 注册，不等于信用卡没有上报。我先查信用报告，再根据账户历史理解信用分和查询工具。</p>
+                <a class="article-read-btn" href="creditwise-itin-credit-report-score.html" aria-label="阅读文章：Capital One 不让我查信用分？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="wise-pay-capital-one-without-us-checking.html">没有美国 Checking，怎么还美国信用卡？我为什么选择 Wise</a></h3>
+                <p>没有传统美国银行 Checking 时，我如何核对 Wise USD Account Details、准备美元余额，并理解由 Capital One 发起扣款的资金方向。</p>
+                <a class="article-read-btn" href="wise-pay-capital-one-without-us-checking.html" aria-label="阅读文章：没有美国 Checking，怎么还美国信用卡？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="capital-one-platinum-activation-autopay-billing.html">Capital One Platinum 到手后怎么设置？激活、AutoPay、账单</a></h3>
+                <p>实体卡到手后，我按照真实顺序完成账户注册、卡片激活、还款账户绑定和 Statement Balance AutoPay 设置。</p>
+                <a class="article-read-btn" href="capital-one-platinum-activation-autopay-billing.html" aria-label="阅读文章：Capital One Platinum 到手后怎么设置？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">视频 + 图文</span>
+                <h3><a href="itin-capital-one-platinum-application-process.html">用 ITIN 申请 Capital One Platinum：从准备资料到获批 $500 的真实流程</a></h3>
+                <p>从准备 ITIN 和真实资料，到预审批、补件、获批 500 美元额度并收到实体卡的完整记录。</p>
+                <a class="article-read-btn" href="itin-capital-one-platinum-application-process.html" aria-label="阅读文章：用 ITIN 申请 Capital One Platinum 真实流程">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">真实建信记录</span>
+                <h3><a href="capital-one-platinum-500-credit-limit-plan.html">$500 额度怎么养信用？我的 Capital One Platinum 使用计划</a></h3>
+                <p>我刚拿到 Capital One Platinum，初始额度只有 500 美元。这是我的小额、稳定、低利用率和按时全额还款计划。</p>
+                <a class="article-read-btn" href="capital-one-platinum-500-credit-limit-plan.html" aria-label="阅读文章：$500 额度怎么养信用？">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">真实建信记录</span>
+                <h3><a href="itin-capital-one-platinum.html">ITIN 是什么？非美国人从 0 建信，我为什么第一张选 Capital One Platinum？</a></h3>
+                <p>我不是美国人，也没有 SSN，但我正在用 ITIN 从 0 开始建立美国信用记录。</p>
+                <a class="article-read-btn" href="itin-capital-one-platinum.html" aria-label="阅读文章：ITIN 是什么？非美国人从 0 建信">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">办卡前准备</span>
+                <h3><a href="getting-started.html">美国信用卡办卡前准备</a></h3>
+                <p>从身份识别、手机号、地址、银行账户、邮箱安全和网络习惯开始。</p>
+                <a class="article-read-btn" href="getting-started.html" aria-label="阅读文章：美国信用卡办卡前准备">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">信用卡</span>
+                <h3><a href="credit-cards.html">美国信用卡中心</a></h3>
+                <p>按新手路线、银行、酒店卡、旅行卡和申请顺序整理信用卡地图。</p>
+                <a class="article-read-btn" href="credit-cards.html" aria-label="阅读文章：美国信用卡中心">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="article-carousel-card spotlight-card">
+              <div class="card-inner">
+                <span class="article-tag">ITIN</span>
+                <h3><a href="itin-credit.html">ITIN 指南与美国信用记录</a></h3>
+                <p>梳理 ITIN 定位、信息一致性和信用建设中的长期变量。</p>
+                <a class="article-read-btn" href="itin-credit.html" aria-label="阅读文章：ITIN 指南与美国信用记录">
+                  <span>阅读全文</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Carousel Scroll Progress Bar -->
+          <div class="carousel-progress-wrap" aria-hidden="true">
+            <div class="carousel-progress-bar" id="articles-progress"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- About Evan Section -->
+    <section class="section" id="about-section">
       <div class="container content-layout">
-        <article class="prose"><p class="eyebrow">About Evan</p><h2>关于 Evan</h2><p>这个网站用中文整理全球账户、美国信用记录、跨境支付和工具模板。内容以个人经验、公开资料和可复盘的方法为主，不提供金融、税务、法律或投资建议。</p></article>
-        <aside class="side-card"><h2>YouTube</h2><p>视频内容会作为文章和工具的补充，后续逐步更新。</p><a class="button button-primary full" href="https://www.youtube.com/channel/UCbzjAfWHVEcCVyuR8yinaKw" target="_blank" rel="noopener noreferrer">访问 YouTube</a></aside>
+        <article class="prose spotlight-card" data-reveal="fade-right">
+          <div class="card-inner">
+            <p class="eyebrow">About Evan</p>
+            <h2>关于 Evan</h2>
+            <div class="heading-line"></div>
+            <p class="lead-text">这个网站用中文整理全球账户、美国信用记录、跨境支付和工具模板。内容以个人经验、公开资料和可复盘的方法为主，不提供金融、税务、法律或投资建议。</p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <span class="check-icon">✓</span>
+                <span>真实复盘经验分享</span>
+              </div>
+              <div class="highlight-item">
+                <span class="check-icon">✓</span>
+                <span>信息透明，不夸大捷径</span>
+              </div>
+              <div class="highlight-item">
+                <span class="check-icon">✓</span>
+                <span>长期主义与合规操作</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-card spotlight-card" data-reveal="fade-left">
+          <div class="card-inner youtube-card">
+            <div class="yt-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="#ff0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </div>
+            <h2>YouTube</h2>
+            <p>视频内容会作为文章和工具的补充，后续逐步更新。</p>
+            <a class="button button-primary full yt-btn" href="https://www.youtube.com/channel/UCbzjAfWHVEcCVyuR8yinaKw" target="_blank" rel="noopener noreferrer">
+              <span>访问 YouTube</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
+    <div class="footer-ambient-glow" aria-hidden="true"></div>
     <div class="container footer-grid">
-      <div>
-        <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">E</span><span>Evan 的全球账户</span></a>
-        <p>Evan Global Account is operated by Tuomu Digital LLC.<br> Evan 的全球账户由 Tuomu Digital LLC 运营。</p>
-        <a class="footer-email" href="mailto:evan@evanglobalcom.com">evan@evanglobalcom.com</a>
+      <div class="footer-info-col">
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <span>E</span>
+          </span>
+          <span class="brand-title">
+            <span>Evan 的全球账户</span>
+            <span class="brand-sub">GLOBAL ACCOUNT</span>
+          </span>
+        </a>
+        <p class="footer-desc">Evan Global Account is operated by Tuomu Digital LLC.<br> Evan 的全球账户由 Tuomu Digital LLC 运营。</p>
+        <a class="footer-email" href="mailto:evan@evanglobalcom.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>evan@evanglobalcom.com</span>
+        </a>
       </div>
+
       <nav class="footer-links" aria-label="业务与法律信息">
         <a href="products-services.html">Products &amp; Services / 产品与服务</a>
         <a href="privacy.html">Privacy Policy / 隐私政策</a>
@@ -190,11 +692,17 @@
         <a href="contact.html">Contact / 联系</a>
       </nav>
     </div>
+
     <div class="container disclaimer">
       <p>本站内容仅供教育及信息用途，不构成金融、投资、税务或法律建议。金融产品的资格、费用和审批结果以提供机构的官方条款及个人情况为准。</p>
-      <p>© <span id="year">2026</span> Evan Global Account</p>
+      <p class="copyright-text">© <span id="year">2026</span> Evan Global Account</p>
     </div>
   </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="返回顶部" type="button">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="assets/js/main.js" defer></script>
 </body>
