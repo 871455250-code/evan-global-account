@@ -345,15 +345,6 @@
     </div>
   </footer>
   <script src="assets/js/main.js?v=20260917" defer></script>
-  <script>
-    // The exact campaign cutoff is unknown; archive only after the stated date has passed everywhere.
-    if (Date.now() >= Date.parse("2026-10-30T00:00:00Z")) {
-      document.getElementById("referral-status").textContent = "本期所述的 2026 年 10 月 28 日已过。以下是历史活动记录，请不要按旧金额和任务注册；如有新活动，请联系 Evan 并核对 App 当前条款。";
-      const referralLink = document.getElementById("referral-link");
-      referralLink.removeAttribute("href");
-      referralLink.setAttribute("aria-disabled", "true");
-      referralLink.textContent = "本期邀请入口已归档";
-    }
-  </script>
+  <script src="assets/js/revolut-guide.js" defer></script>
 </body>
 </html>
